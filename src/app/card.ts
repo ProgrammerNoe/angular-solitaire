@@ -3,4 +3,5 @@ export class Card {
     rankValue: string;
     suit: string;
     suitColor: string;
+    flipped: boolean;
   }
