@@ -1,9 +1,9 @@
 <div id="timer-container">
-  <div id="new-container" routerLink="../home">
+  <div id="new-container" (click)="goToHome()">
     <img src="../../assets/images/new-game.png" title="Reload Game" alt="Reload Game">
   </div>
   <div id="pause-container" (click)="pauseGame()">
     <img src="../../assets/images/pause.png" title="Pause Game" alt="Pause Game">
   </div>
-  <div id="solitaire-timer"></div>
+  <div id="solitaire-timer">{{timeString}}</div>
 </div>

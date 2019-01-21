@@ -1,5 +1,5 @@
 <div id="field">
-    <app-timer></app-timer>
+    <app-timer #timer [overlay]="overlay"></app-timer>
     <div id="playArea">
       <div id="playAreaHeader">
         <div id="deck">
@@ -40,5 +40,5 @@
       </div>
     </div>
   </div>
-  <app-overlay></app-overlay>
+  <app-overlay #overlay [timer]="timer"></app-overlay>
   

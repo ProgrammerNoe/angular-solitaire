@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-declare var $: any;
-declare var timer: any;
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OverlayComponent } from '../overlay/overlay.component';
 
 @Component({
   selector: 'app-timer',
@@ -11,15 +10,52 @@ declare var timer: any;
 
 export class TimerComponent implements OnInit {
 
-  constructor() { }
+  @Input() overlay: OverlayComponent;
+  timeString: string;
+  timeLeft: number;
+  interval;
+
+  constructor(private router: Router) {
+    this.timeLeft = 600;
+  }
 
   ngOnInit() {
+    this.startTimer();
+  }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.overlay.showLost();
+      }
+      let minutes = Math.floor(this.timeLeft/60);
+      let seconds = this.timeLeft - (minutes * 60);
+      seconds = Math.round(seconds * 100) / 100
+
+      let minuteString = minutes.toString();
+      let secondString = seconds.toString();
+      if (minuteString.length == 1) {
+        minuteString = "0" + minuteString;
+      }
+      if (secondString.length == 1) {
+        secondString = "0" + secondString;
+      }
+
+      this.timeString = minuteString + ":" + secondString;
+    }, 1000);
   }
 
   pauseGame() {
-    $('#solitaire-timer').timer('pause');
-    $("#overlay").removeClass("hidden");
-    $("#overlay-pause").removeClass("hidden");
+    clearInterval(this.interval);
+    this.overlay.showPause();
+  }
+
+  goToHome() {
+    if (confirm("Restart game?")) {
+      this.router.navigate(['/home']);
+    }    
   }
 
 }

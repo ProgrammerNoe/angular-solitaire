@@ -28,8 +28,7 @@
             ],
             "scripts": [
               "src/assets/js/jquery-3.3.1.min.js",
-              "src/assets/js/jquery-ui.min.js",
-              "src/assets/js/timer.jquery.min.js"
+              "src/assets/js/jquery-ui.min.js"
             ]
           },
           "configurations": {

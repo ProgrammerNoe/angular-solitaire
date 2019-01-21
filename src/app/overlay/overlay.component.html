@@ -1,19 +1,19 @@
-<div id='overlay' class="hidden">
-	<div id="overlay-pause" class="hidden">
+<div id='overlay' [ngClass]="{'hidden': hideOverlay}">
+	<div id="overlay-pause" [ngClass]="{'hidden': hidePause}">
 		<div class="button-container">
 			<button type="button" class="btn btn-lg btn-success solitaire-button" (click)="onContinueGame()">Continue Game</button>
 		</div>
 	</div>
-	<div id="overlay-times-up" class="hidden">
+	<div id="overlay-times-up" [ngClass]="{'hidden': hideLost}">
 		<p class="overlay-message">Time's up! You lose!</p>
 		<div class="button-container">
-			<button type="button" class="btn btn-lg btn-success solitaire-button" routerLink="../home">Play Again!</button>
+			<button type="button" class="btn btn-lg btn-success solitaire-button" (click)="goToHome()">Play Again!</button>
 		</div>
 	</div>
-	<div id="overlay-win" class="hidden">
+	<div id="overlay-win" [ngClass]="{'hidden': hideWin}">
 		<p class="overlay-message">Congratulations! You win!</p>
 		<div class="button-container">
-			<button type="button" class="btn btn-lg btn-success solitaire-button" routerLink="../home">Play Again!</button>
+			<button type="button" class="btn btn-lg btn-success solitaire-button" (click)="goToHome()">Play Again!</button>
 		</div>
 	</div>
   </div>

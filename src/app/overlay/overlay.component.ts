@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-declare var $: any;
-declare var timer: any;
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-overlay',
@@ -11,17 +10,45 @@ declare var timer: any;
 
 export class OverlayComponent implements OnInit {
 
-  constructor() { }
+  @Input() timer: TimerComponent;
+  hideOverlay : boolean;
+  hidePause : boolean;
+  hideWin : boolean;
+  hideLost : boolean;
+
+  constructor(private router: Router) {
+    this.hidePause = true;
+    this.hideWin = true;
+    this.hideLost = true;
+    this.hideOverlay = true;
+  }
 
   ngOnInit() {
   }
 
   onContinueGame() {
-    $('#solitaire-timer').timer('resume');
-    $("#overlay").addClass("hidden");
-    $("#overlay-rules").addClass("hidden");
-    $("#overlay-content").addClass("hidden");
-    $("#overlay-pause").addClass("hidden");
+    this.timer.startTimer();
+    this.hidePause = true;
+    this.hideOverlay = true;
+  }
+
+  showWin() {
+    this.hideWin = false;
+    this.hideOverlay = false;
+  }
+
+  showLost() {
+    this.hideLost = false;
+    this.hideOverlay = false;
+  }
+
+  showPause() {
+    this.hidePause = false;
+    this.hideOverlay = false;
+  }
+
+  goToHome() {
+    this.router.navigate(['/home']);
   }
 
 }

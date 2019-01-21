@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
 import { PlayAreaComponent } from './play-area/play-area.component';
