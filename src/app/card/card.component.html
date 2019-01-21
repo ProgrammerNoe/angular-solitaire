@@ -1,0 +1,16 @@
+<div class="card drop-area flip-container" [attr.data-number]="card.rankValue" [attr.data-suit]="card.suit" 
+      [attr.data-color]="card.suitColor" [ngClass]="{'flipped': card.flipped}" [style.z-index]="cardIndex" [style.top]="cardIndex + 'rem'">
+  <div class="flipper">
+    <div class="front">
+      <div class="top">
+        <div class="rank">{{card.rank}}</div>
+        <div class="suit">{{card.suit}}</div>
+      </div>
+      <div class="bottom">
+        <div class="suit">{{card.suit}}</div>
+        <div class="rank">{{card.rank}}</div>
+      </div>
+    </div>
+    <div class="back"></div>
+  </div>
+</div>

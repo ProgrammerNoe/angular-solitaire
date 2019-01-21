@@ -1,0 +1,219 @@
+#field {
+	border: 1px solid #999;
+	width: 700px;
+	height: 800px;
+	position: absolute;
+	border-radius: 5px;
+	background-image: linear-gradient(#278c3a, #fbff0754);
+	user-select: none;
+	left:0; 
+	right:0;
+	top:0; 
+	bottom:0;
+	margin:auto;
+	max-width:100%;
+	max-height:100%;	
+}
+
+@media only screen and (max-width: 600px) {
+    #field {
+        overflow:auto;
+    }
+}
+
+#playArea {
+    margin: 20px;
+    position: absolute;
+    width: 100%;
+}
+
+#playAreaHeader .ordered-stack {
+	background: #1557247d;
+}
+
+#template {
+    display: none;
+    visibility: hidden;
+}
+
+.card, .discard, .drop-area, .no-cards {
+    border-radius: 0.4rem;
+    width: 70px;
+    height: 100px;
+}
+
+.no-cards img {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+	cursor: pointer;
+}
+
+.card {
+    font-size: 1rem;
+    position: absolute;
+    box-shadow: 0 0 2px rgba(0,0,0,0.4);
+    line-height: 1;
+	z-index: 1;
+}
+
+.card .top {
+	position: absolute;
+	text-align: center;
+	top: 0.5rem;
+	left: 0.5rem;
+}
+
+.card .bottom {
+	position: absolute;
+	text-align: center;
+	bottom: 0.5rem;
+	right: 0.6rem;
+}
+
+.discard {
+    left: 7rem;
+}
+
+.discard, [class^="ordered-stack-"], [class*=" ordered-stack-"], .no-cards {
+    background: #fbff0754;
+    position: absolute;
+}
+
+.ordered-stack-1 {
+    right: 24rem;
+}
+
+.ordered-stack-2 {
+    right: 17rem;
+}
+
+.ordered-stack-3 {
+    right: 10rem;
+}
+
+.ordered-stack-4 {
+    right: 3rem;
+}
+
+#main {
+    margin-top: 12rem;
+    position: relative;
+    z-index: 1;
+}
+
+.main-stack {
+    background: #ffc10787;
+	position: absolute;
+    top: 0;
+}
+
+.main-stack-1 {
+    left: 0;
+}
+
+.main-stack-2 {
+    left: 7rem;
+}
+
+.main-stack-3 {
+    left: 14rem;
+}
+
+.main-stack-4 {
+    left: 21rem;
+}
+
+.main-stack-5 {
+    left: 28rem;
+}
+
+.main-stack-6 {
+    left: 35rem;
+}
+
+.main-stack-7 {
+    left: 42rem;
+}
+
+[data-color="red"],
+.top-card[data-color="red"] {
+    color: red;
+}
+
+[data-color="black"],
+.top-card[data-color="black"] {
+    color: #000;
+}
+
+[data-color="black"] .bottom .suit,
+[data-color="red"] .bottom .suit {
+    transform: rotate(180deg);
+}
+
+.rank, .suit {
+    cursor: default;
+}
+
+.bottom .rank {
+    transform: rotate(180deg);
+}
+
+.flip-container {
+	perspective: 1000;
+	transform-style: preserve-3d;
+}
+
+.flip-container.flipped .back {
+	transform: rotateY(0deg);
+}
+
+.flip-container.flipped .front {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 70px;
+    height: 100px;
+}
+
+.flipper {
+	transition: 200ms;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.front, .back {
+	backface-visibility: hidden;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 0;
+	left: 0;
+    border-radius: 0.4rem
+}
+
+.front {
+    background: #fff;
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.back {
+    box-shadow: inset 0 0 0 0.4rem rgba(255,255,255,1);
+	transform: rotateY(-180deg);
+	background-image: url("../../assets/images/card-back.jpg");
+	background-size: 300px 100px;
+}
+
+.border-border .back {
+    box-shadow: inset 0 0 0 0.5rem rgba(255,255,255,1);
+}
+
+.border-no-border .back {
+    box-shadow: none;
+}

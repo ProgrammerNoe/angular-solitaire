@@ -1,0 +1,28 @@
+#solitaire-timer {
+	margin: 10px 10px 10px 0;
+	display: inline-block;
+}
+
+#timer-container {
+	text-align: right;
+}
+
+#pause-container {
+	cursor: pointer;
+	display: inline-block;
+}
+
+#pause-container img {
+	height: 25px;
+    width: 25px;
+}
+
+#new-container {
+	cursor: pointer;
+	display: inline-block;
+}
+
+#new-container img {
+	height: 20px;
+    width: 20px;
+}
