@@ -1,4 +1,4 @@
-<div class="card drop-area flip-container" [attr.data-number]="card.rankValue" [attr.data-suit]="card.suit" 
+<div cdkDrag class="card drop-area flip-container" [attr.data-number]="card.rankValue" [attr.data-suit]="card.suit" 
       [attr.data-color]="card.suitColor" [ngClass]="{'flipped': card.flipped}" [style.z-index]="cardIndex" [style.top]="cardIndex + 'rem'">
   <div class="flipper">
     <div class="front">
